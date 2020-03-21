@@ -4,7 +4,6 @@ const game = new War();
 const ceiling = 100;
 let shuffleCount = 0;
 
-// while(!game.isGameOver()) {
 while(!game.isGameOver()) {
   game.printDeckInfo();
   console.log('');
@@ -12,6 +11,7 @@ while(!game.isGameOver()) {
   console.log('');
   shuffleCount++;
   if (shuffleCount >= ceiling) {
+    console.log('');
     console.log('=======> Suffling the decks <=======');
     game.shuffleDecks();
     shuffleCount = 0;
