@@ -11,11 +11,12 @@ test('Deck default instantiated with four suits', () => {
 });
 
 test('Deck default four suits are Hearts, Diamonds, Spades, Clubs', () => {
-  expect(testDeckDefault.getSuits()).toEqual([
-    "Hearts",
-    "Diamonds",
-    "Spades",
-    "Clubs"]);
+  const suits = testDeckDefault.getSuits();
+
+  expect(suits).toContain('Hearts');
+  expect(suits).toContain('Diamonds');
+  expect(suits).toContain('Spades');
+  expect(suits).toContain('Clubs');
 });
 
 test('Deck default instantiated with twelve ranks', () => {
@@ -24,4 +25,12 @@ test('Deck default instantiated with twelve ranks', () => {
 
 test('Deck default has an array of 52 cards', () => {
   expect(testDeckDefault.getCards().length).toBe(52);
+});
+
+test('Deck can be shuffled', ()=> {
+  const deckCardsBeforeShuffle = JSON.stringify(testDeckDefault.getCards());
+  testDeckDefault.shuffle();
+  const deckCardsAfterSuffle = JSON.stringify(testDeckDefault.getCards());
+
+  expect(deckCardsAfterSuffle).not.toBe(deckCardsBeforeShuffle);
 });
