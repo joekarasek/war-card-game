@@ -1,7 +1,7 @@
 const Card = require('./card');
 
 class Deck {
-  constructor(cards = []) {
+  constructor(cards) {
     this.numberOfSuits = 4;
     this.suits = [
         "Hearts",
@@ -11,7 +11,8 @@ class Deck {
     this.numberOfRanks = 13;
 
     this.cards = cards;
-    if (this.cards.length === 0) {
+    if (this.cards === undefined) {
+      this.cards = [];
       this.suits.forEach(suit => {
         for(let i=1; i <= this.numberOfRanks; i ++) {
           this.cards.push(new Card(suit, i));
