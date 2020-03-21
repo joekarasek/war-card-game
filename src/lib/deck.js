@@ -63,10 +63,27 @@ class Deck {
   shuffle() {
     for (let i = this.cards.length - 1; i > 0; i--) {
       const x = Math.floor(Math.random() * (i + 1));
-      const temp = this.cards[i];gi
+      const temp = this.cards[i];
       this.cards[i] = this.cards[x];
       this.cards[x] = temp;
     }
+  }
+
+  /**
+   * Deals a card from the front of the deck
+   * @returns card {Object}
+   */
+  deal() {
+    return this.cards.shift();
+  }
+
+  /**
+   * Adds a card to the back of the deck
+   * @param card
+   * @returns {number}
+   */
+  take(card) {
+    return this.cards.push(card);
   }
 }
 

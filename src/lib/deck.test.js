@@ -1,3 +1,4 @@
+const Card = require('./Card');
 const Deck = require('./deck');
 
 const testDeckDefault = new Deck();
@@ -33,4 +34,23 @@ test('Deck can be shuffled', ()=> {
   const deckCardsAfterSuffle = JSON.stringify(testDeckDefault.getCards());
 
   expect(deckCardsAfterSuffle).not.toBe(deckCardsBeforeShuffle);
+});
+
+test('Deck can deal a card', ()=> {
+  const deckBeforeDeal = JSON.stringify(testDeckDefault.getCards());
+  const dealtCard = testDeckDefault.deal();
+  const deckAfterDeal = JSON.stringify(testDeckDefault.getCards());
+
+  expect(deckAfterDeal.length).not.toBe(deckBeforeDeal.length);
+  expect(dealtCard.getRank()).toBeDefined();
+  expect(dealtCard.getSuit()).toBeDefined();
+});
+
+test('Deck can take a card', ()=> {
+  const card = new Card('Spades', 13);
+  const deckBeforeTake = JSON.stringify(testDeckDefault.getCards());
+  testDeckDefault.take(card);
+  const deckAfterTake = JSON.stringify(testDeckDefault.getCards());
+
+  expect(deckAfterTake.length).not.toBe(deckBeforeTake.length);
 });
