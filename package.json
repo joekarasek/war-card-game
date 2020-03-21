@@ -11,5 +11,8 @@
   "dependencies": {
     "@babel/preset-env": "^7.9.0",
     "webpack": "^4.42.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.11"
   }
 }
