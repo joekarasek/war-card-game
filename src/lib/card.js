@@ -1,4 +1,4 @@
-export default class Card {
+class Card {
   constructor(suit, rank) {
     this.suit = suit;
     this.rank = rank;
@@ -8,3 +8,5 @@ export default class Card {
     return this.suit;
   }
 }
+
+module.exports = Card;
