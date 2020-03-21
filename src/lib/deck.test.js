@@ -54,3 +54,10 @@ test('Deck can take a card', ()=> {
 
   expect(deckAfterTake.length).not.toBe(deckBeforeTake.length);
 });
+
+test('Split Deck', () => {
+  const initialDeck = new Deck();
+  const secondDeck = initialDeck.splitDeck();
+
+  expect(initialDeck).not.toEqual(secondDeck);
+});

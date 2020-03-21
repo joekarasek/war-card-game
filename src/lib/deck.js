@@ -1,26 +1,23 @@
 const Card = require('./card');
 
 class Deck {
-  constructor(numberOfSuits = 4, numberOfRanks = 13) {
-    this.numberOfSuits = numberOfSuits;
+  constructor(cards = []) {
+    this.numberOfSuits = 4;
     this.suits = [
         "Hearts",
         "Diamonds",
         "Spades",
-        "Clubs",
-        "Circles",
-        "Skulls",
-        "Bits",
-        "Shovels"
-    ].slice(0, numberOfSuits);
-    this.numberOfRanks = numberOfRanks;
+        "Clubs" ];
+    this.numberOfRanks = 13;
 
-    this.cards = [];
-    this.suits.forEach(suit => {
-      for(let i=1; i <= numberOfRanks; i ++) {
-        this.cards.push(new Card(suit, i));
-      }
-    });
+    this.cards = cards;
+    if (this.cards.length === 0) {
+      this.suits.forEach(suit => {
+        for(let i=1; i <= this.numberOfRanks; i ++) {
+          this.cards.push(new Card(suit, i));
+        }
+      });
+    }
   }
 
   /**
@@ -84,6 +81,11 @@ class Deck {
    */
   take(card) {
     return this.cards.push(card);
+  }
+
+  splitDeck() {
+    const newCards = this.cards.splice(Math.ceil(this.cards.length / 2));
+    return new Deck(newCards);
   }
 }
 
