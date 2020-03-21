@@ -6,9 +6,7 @@ let shuffleCount = 0;
 
 while(!game.isGameOver()) {
   game.printDeckInfo();
-  console.log('');
   game.playRound();
-  console.log('');
   shuffleCount++;
   if (shuffleCount >= ceiling) {
     console.log('');
