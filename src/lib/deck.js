@@ -53,6 +53,14 @@ class Deck {
   }
 
   /**
+   * Returns the number of cards
+   * @returns {[]}
+   */
+  getCardsCount() {
+    return this.cards.length;
+  }
+
+  /**
    * Suffles the deck
    * This randomizes the deck of cards using the Durstenfeld shuffle.
    * It has runtime of 0(n) based on the size of the deck of cards
@@ -71,7 +79,7 @@ class Deck {
    * @returns card {Object}
    */
   deal() {
-    return this.cards.shift();
+    return this.cards.shift() || new Card('Joker', 0);
   }
 
   /**

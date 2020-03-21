@@ -1,7 +1,10 @@
-import Card from './lib/card';
-import Deck from './lib/deck';
+import War from './lib/war';
 
-const firstCard = new Card('Hearts', 1);
-const firstDeck = new Deck();
+const game = new War();
 
-console.log(firstDeck.shuffle().getCards());
+while(!game.isGameOver()) {
+  game.printDeckInfo();
+  console.log('');
+  game.playRound();
+  console.log('');
+}
