@@ -1,4 +1,3 @@
-const Card = require('./card');
 const Deck = require('./deck');
 
 class War {
@@ -48,13 +47,15 @@ class War {
      * until either player or computer has a card with higher rank
      */
     while (oneCard.getRank() === twoCard.getRank()) {
-      console.log('');
-      console.log('!!!War!!! Each player adds a card to the pool');
+      console.log('!!!War!!! Each player adds a card to the pool, then draws again!');
+      pool.take(oneCard);
+      pool.take(twoCard);
       pool.take(this.player.deal());
       pool.take(this.computer.deal());
       oneCard = this.player.deal();
       twoCard = this.computer.deal();
       console.log(`${oneCard.getRank()} of ${oneCard.getSuit()} vs ${twoCard.getRank()} of ${twoCard.getSuit()} `);
+      debugger;
     }
 
     if (oneCard.getRank() > twoCard.getRank()) {
