@@ -12,7 +12,7 @@ while(!game.isGameOver()) {
   shuffleCount++;
   if (shuffleCount >= ceiling) {
     console.log('');
-    console.log('=======> Suffling the decks <=======');
+    console.log('=======> Shuffling the decks <=======');
     console.log('');
     game.shuffleDecks();
     shuffleCount = 0;
